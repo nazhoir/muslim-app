@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
+
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:quran_app/views/landing.dart';
+import 'package:quran_app/app/routes/app_pages.dart';
 
-class Intro extends StatefulWidget {
-  const Intro({Key? key}) : super(key: key);
+import '../../../../views/landing.dart';
+import '../controllers/intro_controller.dart';
 
-  @override
-  State<Intro> createState() => _IntroState();
-}
-
-class _IntroState extends State<Intro> {
+class IntroView extends GetView<IntroController> {
+  const IntroView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,7 +54,7 @@ class _IntroState extends State<Intro> {
               Align(
                 alignment: Alignment.center,
                 child: Container(
-                  margin: const EdgeInsets.only(top: 90),
+                  margin: const EdgeInsets.only(top: 110),
                   child: Image.asset(
                     "images/decoration1.png",
                   ),
@@ -64,14 +63,9 @@ class _IntroState extends State<Intro> {
               Align(
                 alignment: Alignment.bottomCenter,
                 child: InkWell(
-                  onTap: () {
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(builder: (context) => const Landing()),
-                    );
-                  },
+                  onTap: () => Get.offAllNamed(Routes.HOME),
                   child: Container(
-                    margin: const EdgeInsets.only(bottom: 50),
+                    margin: const EdgeInsets.only(bottom: 40),
                     height: 60,
                     width: 185,
                     decoration: const BoxDecoration(

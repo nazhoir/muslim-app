@@ -1,19 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:quran_app/intro.dart';
+
+import 'package:get/get.dart';
+
+import 'app/routes/app_pages.dart';
 
 void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
+  runApp(
+    GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: "Qur'an App",
-      home: Intro(),
-    );
-  }
+      title: "Application",
+      initialRoute: Routes.INTRO,
+      getPages: AppPages.routes,
+    ),
+  );
 }

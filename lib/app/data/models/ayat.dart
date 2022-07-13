@@ -1,55 +1,15 @@
 // To parse this JSON data, do
 //
-//     final juzDetail = juzDetailFromJson(jsonString);
+//     final ayat = ayatFromJson(jsonString);
 
 import 'dart:convert';
 
-JuzDetail juzDetailFromJson(String str) => JuzDetail.fromJson(json.decode(str));
+Ayat ayatFromJson(String str) => Ayat.fromJson(json.decode(str));
 
-String juzDetailToJson(JuzDetail data) => json.encode(data.toJson());
+String ayatToJson(Ayat data) => json.encode(data.toJson());
 
-class JuzDetail {
-  JuzDetail({
-    this.juz,
-    this.juzStartSurahNumber,
-    this.juzEndSurahNumber,
-    this.juzStartInfo,
-    this.juzEndInfo,
-    this.totalVerses,
-    this.verses,
-  });
-
-  int? juz;
-  int? juzStartSurahNumber;
-  int? juzEndSurahNumber;
-  String? juzStartInfo;
-  String? juzEndInfo;
-  int? totalVerses;
-  List<Verse>? verses;
-
-  factory JuzDetail.fromJson(Map<String, dynamic> json) => JuzDetail(
-        juz: json["juz"],
-        juzStartSurahNumber: json["juzStartSurahNumber"],
-        juzEndSurahNumber: json["juzEndSurahNumber"],
-        juzStartInfo: json["juzStartInfo"],
-        juzEndInfo: json["juzEndInfo"],
-        totalVerses: json["totalVerses"],
-        verses: List<Verse>.from(json["verses"].map((x) => Verse.fromJson(x))),
-      );
-
-  Map<String, dynamic> toJson() => {
-        "juz": juz,
-        "juzStartSurahNumber": juzStartSurahNumber,
-        "juzEndSurahNumber": juzEndSurahNumber,
-        "juzStartInfo": juzStartInfo,
-        "juzEndInfo": juzEndInfo,
-        "totalVerses": totalVerses,
-        "verses": List<dynamic>.from(verses!.map((x) => x.toJson())),
-      };
-}
-
-class Verse {
-  Verse({
+class Ayat {
+  Ayat({
     this.number,
     this.meta,
     this.text,
@@ -65,7 +25,7 @@ class Verse {
   Audio? audio;
   Tafsir? tafsir;
 
-  factory Verse.fromJson(Map<String, dynamic> json) => Verse(
+  factory Ayat.fromJson(Map<String, dynamic> json) => Ayat(
         number: Number.fromJson(json["number"]),
         meta: Meta.fromJson(json["meta"]),
         text: Text.fromJson(json["text"]),

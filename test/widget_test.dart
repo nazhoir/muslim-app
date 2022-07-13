@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:quran_app/models/surah.dart';
-import 'package:quran_app/models/surah_detail.dart';
+import 'package:quran_app/app/data/models/surah.dart';
+import 'package:quran_app/app/data/models/surah_detail.dart';
 
 void main() async {
   Uri url = Uri.parse("https://api.quran.sutanlab.id/surah");
