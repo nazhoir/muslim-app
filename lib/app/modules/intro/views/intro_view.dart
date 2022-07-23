@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:quran_app/app/routes/app_pages.dart';
 
-import '../../../../views/landing.dart';
 import '../controllers/intro_controller.dart';
 
 class IntroView extends GetView<IntroController> {
